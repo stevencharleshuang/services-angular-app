@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LoggingService } from '../logging.service';
 import { AccountsService } from '../accounts.service';
 
@@ -21,5 +21,6 @@ export class AccountComponent {
     // console.log('A server status changed, new status: ' + status);
     this.accountsService.updateStatus(this.id, status);
     // this.loggingService.logStatusChange(status);
+    this.accountsService.statusUpdated.emit(status);
   }
 }
